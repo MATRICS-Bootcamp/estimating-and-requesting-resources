@@ -44,3 +44,43 @@ module load your_module_name
 # Execute your application
 srun your_application_executable
 ```
+# Strategies for your first request
+
+All of the resources above have different behaviors - so you need to think about them a little differently.
+
+## CPUs
+
+It's very common for programming languages to only use 1 CPU, unless told to do otherwise
+It's also very common for libraries or packages to automatically use multiple CPUs.  You should read the documentation on the specific software you use
+
+For your first request, I would recommend somewhere between 1 and 8 CPUs.  Then, you can use the tools available to determine if you need more.
+
+## Memory
+
+Overall, you should be sure to request too much memory.  If you run out of memory, your job will fail.
+
+### Ellianna's Rule
+
+Ellianna's rule of thumb is to take your dataset size, and how many copies of it you make of it, and add 10-25% of overhead.
+
+For example - if you have a 50GB dataset, and you make 1 copy of it, then you should request 110-125GB of memory.
+
+### Brian's Rule
+
+Brian's rule of thumb is to ask for a lot of memory at first.  If your dataset is 50GB, I would just ask for 128GB.  If you run out of memory, I would double your memory.
+
+When you have a working solution, you can look back at the actual memory used, and fine tune later.
+
+## Time
+
+Like memory, you also need to request too much time.  If your time limit comes and your job is still running, it will be killed without finishing.
+
+One strategy would be to ask for the maximum amount of time, and fine tune later.  In `serc`, the max time is 7 days.
+
+## GPUs
+
+If you're unsure on how many GPUs to request, I would request 1.  Using multiple GPUs is an advanced topic, and I would recommend starting with 1 unless you are familiar with multi-GPU computing.
+
+## Nodes
+
+Similar to GPUs, I would start with 1 node.  Multi-node computing is an advanced topic - and so I would recommend starting with 1 node unless you are familiar with multi-node computing.
