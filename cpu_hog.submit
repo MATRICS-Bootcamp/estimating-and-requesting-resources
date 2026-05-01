@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --job-name=cpu_test
+#SBATCH --cpus-per-task=8
+#SBATCH --time=01:00:00
+#SBATCH --mem=4G
+
+ml python/3.12.1
+ml py-numpy/2.2.6_py312
+
+python3 cpu_load.py $SLURM_CPUS_PER_TASK 3600
