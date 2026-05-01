@@ -25,4 +25,6 @@ sbatch gpu_hog.submit
 ```
 When this job starts, let's login to the node and run `nvidia-smi` to view utilization.  You'll see something like this:
 
+From this, you can see that you have a process on the GPU, and that GPU memory is being used.
 
+You might also find `nvtop` useful.  You can load `nvtop` on Sherlock with `ml system nvtop`, and then run with `nvtop` to see something like this:
