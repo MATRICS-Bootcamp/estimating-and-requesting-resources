@@ -24,7 +24,7 @@ A node is a physical machine, like your laptop.  By default, most jobs only need
 # How do I request resources?
 
 ## OnDemand
-![Resources on OnDemand](ondemand_screenshot.png)
+![Resources on OnDemand](assets/ondemand_screenshot.png)
 ## SBATCH
 
 ```bash
