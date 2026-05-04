@@ -28,3 +28,32 @@ When this job starts, let's login to the node and run `nvidia-smi` to view utili
 From this, you can see that you have a process on the GPU, and that GPU memory is being used.
 
 You might also find `nvtop` useful.  You can load `nvtop` on Sherlock with `ml system nvtop`, and then run with `nvtop` to see something like this:
+
+![nvidia-smi](nvidia-smi.png)
+
+There's another good tool for watching your GPU usage called `nvtop`.  Here's what that looks like:
+
+![nvtop](nvtop.png)
+
+## Tools for tracking after the job is done
+
+### seff
+
+ `seff` stands for Slurm Efficiency, and will give you a report of your jobs efficiency like this:
+
+ ```bash
+seff 23801862
+```
+
+![seff](seff.png)
+
+
+ ### sacct
+
+ `sacct` stands for Slurm Accounting.  This is the database of job information that Sherlock holds for 6 months.  Here's an example query where I request information about my job:
+
+ ```bash
+sacct -u bchivers -S2026-05-01 -E2026-06-01 -ojobid,jobname%40,user,start,end,state,alloctres%50,MaxRSS
+```
+
+![sacct](sacct.png)
