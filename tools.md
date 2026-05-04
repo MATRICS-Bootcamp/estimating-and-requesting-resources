@@ -12,7 +12,7 @@ sbatch cpu_hog.submit
 
 When this job starts, let's login to the node and run `htop` to view utilization.  You'll see something like this:
 
-![htop](htop.png)
+![htop](assets/htop.png)
 
 If you see many more threads, press Shift+H to switch from threads to processes.
 
@@ -29,11 +29,11 @@ From this, you can see that you have a process on the GPU, and that GPU memory i
 
 You might also find `nvtop` useful.  You can load `nvtop` on Sherlock with `ml system nvtop`, and then run with `nvtop` to see something like this:
 
-![nvidia-smi](nvidia-smi.png)
+![nvidia-smi](assets/nvidia-smi.png)
 
 There's another good tool for watching your GPU usage called `nvtop`.  Here's what that looks like:
 
-![nvtop](nvtop.png)
+![nvtop](assets/nvtop.png)
 
 ## Tools for tracking after the job is done
 
@@ -45,7 +45,7 @@ There's another good tool for watching your GPU usage called `nvtop`.  Here's wh
 seff 23801862
 ```
 
-![seff](seff.png)
+![seff](assets/seff.png)
 
 
  ### sacct
@@ -56,4 +56,4 @@ seff 23801862
 sacct -u bchivers -S2026-05-01 -E2026-06-01 -ojobid,jobname%40,user,start,end,state,alloctres%50,MaxRSS
 ```
 
-![sacct](sacct.png)
+![sacct](assets/sacct.png)
