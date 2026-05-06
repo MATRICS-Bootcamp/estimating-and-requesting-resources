@@ -1,3 +1,11 @@
+# Why do I have to request resources in HPC?
+
+In an HPC system, you have:
+
+* Login Nodes - computers for you to login to and do light administrative work
+* Compute Nodes - big computers designed for high performance computing!
+* A scheduler - A program that manages who gets what slices of the computer and when they get it
+
 # What resources might you request in HPC?
 
 ## CPUs
