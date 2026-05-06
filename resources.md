@@ -32,7 +32,7 @@ A node is a physical machine, like your laptop.  By default, most jobs only need
 #SBATCH --job-name=my_job             # Job name
 #SBATCH --output=my_job_%j.out        # Output file name (%j expands to jobId)
 #SBATCH --error=my_job_%j.err         # Error file name
-#SBATCH --cpus=4                       # Total number of CPUs requested
+#SBATCH --cpus-per-task=4                       # Total number of CPUs requested
 #SBATCH --mem=16G                      # Total memory limit
 #SBATCH --time=02:00:00                # Time limit hrs:min:sec
 #SBATCH --gpus=2                       # Number of GPUs requested
