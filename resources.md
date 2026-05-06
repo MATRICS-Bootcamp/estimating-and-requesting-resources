@@ -32,6 +32,9 @@ A node is a physical machine, like your laptop.  By default, most jobs only need
 # How do I request resources?
 
 ## OnDemand
+[On Sherlock](https://ondemand.sherlock.stanford.edu/)
+
+
 ![Resources on OnDemand](assets/ondemand_screenshot.png)
 ## SBATCH
 
