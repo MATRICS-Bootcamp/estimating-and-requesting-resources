@@ -7,7 +7,7 @@
 We're going to start by submitting the following job:
 
 ```bash
-sbatch cpu_hog.submit
+sbatch jobs/cpu_hog.submit
 ```
 
 When this job starts, let's login to the node and run `htop` to view utilization.  You'll see something like this:
@@ -21,7 +21,7 @@ If you see many more threads, press Shift+H to switch from threads to processes.
 For GPUs, were going to submit the following job:
 
 ```bash
-sbatch gpu_hog.submit
+sbatch jobs/gpu_hog.submit
 ```
 When this job starts, let's login to the node and run `nvidia-smi` to view utilization.  You'll see something like this:
 
