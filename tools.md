@@ -57,3 +57,14 @@ sacct -u bchivers -S2026-05-01 -E2026-06-01 -ojobid,jobname%40,user,start,end,st
 ```
 
 ![sacct](assets/sacct.png)
+
+
+## Estimating Resources Beyond the First Request
+
+It's a big trade off between:
+* small jobs will get through the queue faster, but may run slower
+* big jobs might wait longer, but process quicker
+
+[SERC Utilization Dashboard](https://datastudio.google.com/reporting/c0249b86-4271-4473-adb6-ccf06d2a8b39)
+
+[Owners GPU Dashboard](https://datastudio.google.com/reporting/ca4a8b78-8608-4acb-8fc8-2fb1ee5584f6)
