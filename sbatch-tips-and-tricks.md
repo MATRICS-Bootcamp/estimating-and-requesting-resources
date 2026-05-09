@@ -29,8 +29,7 @@ Brian's `cpu_load.py` is a perfect example: it spawns exactly as many worker pro
 
 ```bash
 #!/bin/bash
-#!/bin/bash
-#SBATCH --job-name=cpu_parallilized_load
+#SBATCH --job-name=cpu_parallelized_load
 #SBATCH --cpus-per-task=8        # reserve 8 cores; memory uses node default of >=4GB/CPU
 #SBATCH --time=00:05:00
 #SBATCH --partition=normal
