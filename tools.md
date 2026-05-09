@@ -12,6 +12,15 @@ sbatch cpu_hog.submit
 
 When this job starts, let's login to the node and run `htop` to view utilization.  You'll see something like this:
 
+<details>
+<summary>How to Login and run htop</summary>
+<ul><li>Login to Sherlock, either via [OnDemand](https://ondemand.sherlock.stanford.edu/) or the terminal</li>
+<li>Submit your job, or the sample job in this repository</li>
+<li>Watch your job in the queue with `squeue --me`</li>
+<li>When your job is running, ssh into the compute node it's running on</li>
+<li>Run `htop`</li></ul>
+</details>
+
 ![htop](assets/htop.png)
 
 If you see many more threads, press Shift+H to switch from threads to processes.
