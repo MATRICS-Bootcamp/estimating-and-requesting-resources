@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --job-name=cpu_logged_load
+#SBATCH --output=logs/cpu_load_%j.out    # %j expands to the job ID
+#SBATCH --error=logs/cpu_load_%j.err     # stderr goes to a separate file
+#SBATCH --cpus-per-task=4
+#SBATCH --time=00:05:00
+#SBATCH --partition=normal
+
+mkdir -p logs    # Make sure the log directory exists before the job runs
+python cpu_load.py $SLURM_CPUS_PER_TASK 60
