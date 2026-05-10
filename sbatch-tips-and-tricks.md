@@ -194,7 +194,7 @@ Here is a reusable `sbatch` template that combines all the practices for a basic
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=cpu_load
+#SBATCH --job-name=cpu_allbasics_load
 #SBATCH --output=logs/%x_%j.out
 #SBATCH --error=logs/%x_%j.err
 #SBATCH --cpus-per-task=8
@@ -218,7 +218,7 @@ echo "Job $SLURM_JOB_ID finished at $(date)"
 
 ---
 
-## Intermediate Tips and Tricks
+## Tips and Tricks to Level Up your Sbatch Request
 
 ### Preview for MATRICS Day 2 — Parallelization using Slurm job arrays 
 
