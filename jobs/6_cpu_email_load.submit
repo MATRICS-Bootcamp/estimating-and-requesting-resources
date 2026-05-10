@@ -9,4 +9,4 @@
 #SBATCH --mail-user=yourname@stanford.edu
 
 mkdir -p logs
-python cpu_load.py $SLURM_CPUS_PER_TASK 60
+python3 cpu_load.py $SLURM_CPUS_PER_TASK 60

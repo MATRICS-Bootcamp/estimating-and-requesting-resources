@@ -5,4 +5,4 @@
 #SBATCH --time=00:05:00
 #SBATCH --partition=normal,owners
 
-python cpu_load.py $SLURM_CPUS_PER_TASK 60
+python3 cpu_load.py $SLURM_CPUS_PER_TASK 60

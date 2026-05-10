@@ -7,4 +7,4 @@
 #SBATCH --partition=normal
 
 mkdir -p logs    # Make sure the log directory exists before the job runs
-python cpu_load.py $SLURM_CPUS_PER_TASK 60
+python3 cpu_load.py $SLURM_CPUS_PER_TASK 60

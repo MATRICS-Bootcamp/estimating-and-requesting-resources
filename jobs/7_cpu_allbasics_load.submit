@@ -10,10 +10,9 @@
 #SBATCH --mail-user=yourname@stanford.edu
 
 mkdir -p logs
-module load python/3.12.0
 
 echo "Job $SLURM_JOB_ID started on $(hostname) at $(date)"
 
-python cpu_load.py $SLURM_CPUS_PER_TASK 60
+python3 cpu_load.py $SLURM_CPUS_PER_TASK 60
 
 echo "Job $SLURM_JOB_ID finished at $(date)"

@@ -6,4 +6,4 @@
 
 # Use the $SLURM_CPUS_PER_TASK variable so your script always matches what Slurm allocated,
 # even if you change --cpus-per-task later
-python cpu_load.py $SLURM_CPUS_PER_TASK 60    # 8 workers, 60 seconds
+python3 cpu_load.py $SLURM_CPUS_PER_TASK 60    # 8 workers, 60 seconds
