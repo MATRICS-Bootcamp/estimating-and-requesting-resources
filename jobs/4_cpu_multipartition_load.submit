@@ -1,0 +1,8 @@
+#!/bin/bash
+#SBATCH --job-name=cpu_multipartition_load
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=12G
+#SBATCH --time=00:05:00
+#SBATCH --partition=normal,owners
+
+python cpu_load.py $SLURM_CPUS_PER_TASK 60
