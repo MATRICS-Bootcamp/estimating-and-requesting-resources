@@ -5,7 +5,7 @@ In Slurm, you submit jobs using the `sbatch ...` command, which reads a job scri
 
 At minimum, an `sbatch` file needs three components:
 1. A [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)): The shebang line can call any shell or scripting language available on the cluster. For example `#!/bin/bash`, `#!/bin/env python`, or `#!/bin/env julia`.
-2. [SBATCH](https://slurm.schedmd.com/sbatch.html#SECTION_OPTIONS) constraints: Resource requests (for example: `ntasks`, `mem`, `nodes`, `time`) that specify the constraining limits of your job's resources.
+2. [#SBATCH](https://slurm.schedmd.com/sbatch.html#SECTION_OPTIONS) constraints: Resource requests (for example: `ntasks`, `mem`, `nodes`, `time`) that specify the constraining limits of your job's resources.
 3. Executable commands: These can follow what you might write in any script file to run your code. In shell, as an example, this would be where you would load modules (`module load ...`) followed by running a script (`python3 my_script.py`).
 
 ---
@@ -82,6 +82,30 @@ python cpu_load.py $SLURM_CPUS_PER_TASK 60
 ```
 
 > **Check your efficiency after the job runs.** Use `seff <jobid>` to see how much CPU and memory you actually used. If, for example, you used 5% of your requested memory, request less next time and your job will wait less in the queue because it's cheaper to schedule. It is good practice to aim for ~85% efficiency.
+
+---
+
+### Which partition should you select?
+
+On Sherlock, different partitions are useful for different tasks. Choosing the right one affects both how long your job waits and what resources it can access.
+
+```bash
+#SBATCH --partition=normal        # General-purpose CPU jobs
+#SBATCH --partition=gpu           # Jobs requiring GPU nodes
+#SBATCH --partition=bigmem        # Jobs needing >256 GB RAM
+#SBATCH --partition=serc          # If you're in SDSS you get priority access to CPUs and GPUs through this queue
+#SBATCH --partition=owners        # If you're in SDSS or an owner group, this queue has a shorter wait but is pre-emptible
+```
+
+If you want your job to run on the `normal` partition but also use `owners` if slots open up there, you can specify multiple partitions:
+
+```bash
+#SBATCH --partition=normal,owners
+```
+
+Slurm will schedule your job on whichever has resources available first.
+
+> **Check available partitions with `sh_part`.** Your group may have dedicated owner nodes with shorter queue times for larger resources. Check `sh_part"` to list the partitions that you can access, and available resources there.
 
 ---
 
@@ -199,38 +223,6 @@ echo "Job $SLURM_JOB_ID finished at $(date)"
 ### Preview for MATRICS Day 2 — Parallelization using Slurm job arrays 
 
 If you ever find yourself copy-pasting a batch script and changing only keyword arguments or hyperparameters, that is an ideal time to use a Slurm **job array**. Arrays let you submit a whole family of jobs with a single `sbatch` command, each getting a unique index (`$SLURM_ARRAY_TASK_ID`) to iterate over for input. Christina will show us how to build arrays from scratch in Day 2.
-
----
-
-### Which partition should you select?
-
-On Sherlock, different partitions are useful for different tasks. Choosing the right one affects both how long your job waits and what resources it can access.
-
-```bash
-#SBATCH --partition=normal        # General-purpose CPU jobs
-#SBATCH --partition=gpu           # Jobs requiring GPU nodes
-#SBATCH --partition=bigmem        # Jobs needing >256 GB RAM
-#SBATCH --partition=serc          # If you're in SDSS you get priority access to CPUs and GPUs through this queue
-#SBATCH --partition=owners        # If you're in SDSS or an owner group, this queue has a shorter wait but is pre-emptible
-```
-
-> **Check available partitions with `sh_part`.** 
-
-```bash
-#SBATCH --partition=normal,owners
-```
-Slurm will schedule your job on whichever has resources available first.
-
-
-> **Check available partitions with `sh_part`.** Your group may have dedicated owner nodes with shorter queue times for larger resources. Check `sh_part"` to list the partitions that you can access, and available resources there.
-
-If you want your job to run on the `normal` partition but also use `owners` if slots open up there, you can specify multiple partitions:
-
-```bash
-#SBATCH --partition=normal,owners
-```
-
-Slurm will schedule your job on whichever has resources available first.
 
 ---
 
