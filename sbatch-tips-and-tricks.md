@@ -226,6 +226,19 @@ If you ever find yourself copy-pasting a batch script and changing only keyword 
 
 ---
 
+### Requesting GPU resources
+
+You can request GPUs in your job script with either the `--gpus` or the `--gres` flag. The `--gpus` flag is a newer Slurm syntax than `--gres`, and is the preferred method on Sherlock.
+
+```bash
+#SBATCH --gpus=1
+#SBATCH --partition=gpu
+```
+
+On Sherlock, the `normal` queue is not GPU enabled, so make sure the queue that you are using to request GPUs has GPUs available. The following queues all do: `gpu`, `dev`, `serc`, `owners`.
+
+---
+
 ### Selecting specific nodes
 
 Within a partition, nodes vary in CPU or GPU generation, memory size, and local storage. You can request specific node types with `--constraint`:
