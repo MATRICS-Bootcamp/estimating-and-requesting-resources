@@ -200,7 +200,7 @@ Here is a reusable `sbatch` template that combines all the practices for a basic
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=12G
 #SBATCH --time=00:05:00
-#SBATCH --partition=normal
+#SBATCH --partition=normal, owners
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=yourname@stanford.edu
 
