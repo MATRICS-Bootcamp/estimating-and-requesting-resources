@@ -1,0 +1,7 @@
+#!/bin/bash
+#SBATCH --job-name=cpu_mem_load
+#SBATCH --mem=12G                # reserve 12GB RAM; nCPUs use node default
+#SBATCH --time=00:05:00
+#SBATCH --partition=normal
+
+python cpu_load.py $SLURM_CPUS_PER_TASK 60
